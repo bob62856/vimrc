@@ -7,8 +7,7 @@ set nocompatible
 
 set encoding=utf-8 "set number " 设置行号
 set cursorline "突出显示当前行
-" set cursorcolumn " 突出显示当前列
-set showmatch " 显示括号匹配
+" set cursorcolumn " 突出显示当前列 set showmatch " 显示括号匹配
 set completeopt-=preview
 
 set signcolumn=no
@@ -77,6 +76,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Vim状态栏插件，包括显示行号，列号，文件类型，文件名，以及Git状态
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " 代码自动完成，安装完插件还需要额外配置才可以使用
 Plug 'Valloric/YouCompleteMe'
@@ -93,9 +93,9 @@ Plug 'honza/vim-snippets'
 Plug 'KeitaNakamura/neodark.vim'
 " colorscheme monokai
 Plug 'crusoexia/vim-monokai'
-" colorscheme github
+" colorscheme github 
 Plug 'acarapetis/vim-colors-github'
-" colorscheme one
+" colorscheme one 
 Plug 'rakr/vim-one'
 
 " go 主要插件
@@ -119,7 +119,7 @@ call plug#end()
 
 " 配色方案, 可以从上面插件安装中的选择一个使用
 set background=dark " 主题背景 dark-深色; light-浅色
-" colorscheme neodark
+" colorscheme neodark 
 
 "==============================================================================
 " vim-go 插件
@@ -302,11 +302,20 @@ let g:ag_prg="ag --column --nogroup --noheading"
 "==============================================================================
 " airline 配置
 "==============================================================================
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#branch#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#quickfix#enabled = 0
+" let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1 
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#tab_min_count = 2 
+" let g:airline#extensions#tabline#show_tabs = 1 
+" let g:airline#extensions#tabline#show_tab_type = 1
+" let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#branch#enabled = 0 
+let g:airline#extensions#tagbar#enabled = 0 
+let g:airline#extensions#whitespace#enabled = 0 
+let g:airline#extensions#quickfix#enabled = 0 
 
 " 只显示文件的相对路径和行号/总行号
 let g:airline_section_a = '%{fnamemodify(expand("%:p"), ":~:.")}'
@@ -321,7 +330,7 @@ let g:airline_section_z = ''
 "==============================================================================
 " let g:clang_format#style = 'GNU'
 " let g:clang_format#auto_format = 1
-" let g:clang_format#command = '/usr/local/clang/bin/clang-format'
+" let g:clang_format#command = '/usr/local/clang/bin/clang-format' 
 
 " ==============================================================================
 " nmap配置
@@ -479,8 +488,6 @@ if has("cscope")
 	nmap <leader><leader>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
-:nnoremap <Leader>T :tab split<CR>
-
 " tab 标签页切换快捷键
 :nn <Leader>1 1gt
 :nn <Leader>2 2gt
@@ -492,3 +499,4 @@ endif
 :nn <Leader>8 8gt
 :nn <Leader>9 8gt
 :nn <Leader>0 :tablast<CR>
+
